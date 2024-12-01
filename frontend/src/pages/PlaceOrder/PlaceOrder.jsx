@@ -36,15 +36,19 @@ const PlaceOrder = () => {
             <hr />
             <div className="cart-total-details">
               <p>Delivery fee</p>
-              <p>{formatToRupiah(5000)}</p>
+              <p>{formatToRupiah(getTotalCartAmount() === 0 ? 0 : 5000)}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>{formatToRupiah(getTotalCartAmount() + 5000)}</b>
+              <b>
+                {formatToRupiah(
+                  getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 5000
+                )}
+              </b>
             </div>
           </div>
-          <button>PROCED TO CHECKOUT</button>
+          <button>PROCED TO PAYMENT</button>
         </div>
       </div>
     </form>
